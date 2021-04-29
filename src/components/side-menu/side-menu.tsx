@@ -28,7 +28,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex"
+    display: "fixed"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -88,7 +88,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MiniDrawer({ appName, children }) {
+interface MiniDrawerI {
+  appName: string;
+  children: React.ReactNode;
+}
+export default function MiniDrawer(props: MiniDrawerI) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -103,8 +107,8 @@ export default function MiniDrawer({ appName, children }) {
 
   return (
     <div className={classes.root}>
-      {children}
       <CssBaseline />
+      {props.children}
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -124,7 +128,7 @@ export default function MiniDrawer({ appName, children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            {appName}
+            {props.appName}
           </Typography>
         </Toolbar>
       </AppBar>
