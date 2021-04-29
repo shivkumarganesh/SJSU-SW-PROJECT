@@ -7,7 +7,6 @@ import Profile from "./pages/profile/profile";
 import Transactions from "./pages/transactions/transactions";
 import Dashbaord from "./pages/dashboard/dashboard";
 import Accounts from "./pages/accounts/accounts";
-import Cards from "./pages/cards/cards";
 
 import { makeStyles } from "@material-ui/core";
 import { Route } from "react-router-dom";
@@ -47,23 +46,25 @@ export default function App() {
             <div className={classes.toolbar} />
             <Profile />
           </Route>
-          <Route path="/transactions">
-            <div className={classes.toolbar} />
-            <Transactions />
-          </Route>
-          <Route path="/cards">
-            <div className={classes.toolbar} />
-            <Cards />
-          </Route>
 
-          {/* Alternate Routes */}
           <Route path="/login">
             <div className={classes.toolbar} />
             <Login />
           </Route>
+
+          <Route path="/transactions">
+            <div className={classes.toolbar} />
+            <Transactions />
+          </Route>
+
           <Route path="/search">
             <div className={classes.toolbar} />
             <UserSearch />
+          </Route>
+          <Route path="/">
+            <div className={classes.toolbar} />
+            <h1>Hello CodeSandbox</h1>
+            <h2>Start editing to see some magic happen!</h2>
           </Route>
         </main>
       </MiniDrawer>

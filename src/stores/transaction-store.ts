@@ -11,6 +11,7 @@ export class TransactionStore {
     const transactions = this.fetchTransactions();
     this.setTransactions(transactions);
   }
+
   fetchTransactions(id?: string) {
     // Fetch Transactions from the backend by ID or All if ID not present
     if (id) {
