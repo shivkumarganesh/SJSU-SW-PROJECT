@@ -50,7 +50,11 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ListView() {
+interface ListViewI {
+  columnNames: string[];
+  data: any;
+}
+export default function ListView(props: ListViewI) {
   const classes = useStyles();
 
   return (
@@ -58,11 +62,14 @@ export default function ListView() {
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Account No.</StyledTableCell>
-            <StyledTableCell align="right">Location</StyledTableCell>
-            <StyledTableCell align="right">Account Health</StyledTableCell>
-            <StyledTableCell align="right">Amount</StyledTableCell>
+            {props.columnNames &&
+              props.columnNames.map((name: string, index) => {
+                return index === 0 ? (
+                  <StyledTableCell>{name}</StyledTableCell>
+                ) : (
+                  <StyledTableCell align="right">{name}</StyledTableCell>
+                );
+              })}
           </TableRow>
         </TableHead>
         <TableBody>

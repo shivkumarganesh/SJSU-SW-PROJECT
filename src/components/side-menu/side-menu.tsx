@@ -17,6 +17,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import CreditCardIcon from "@material-ui/icons/CreditCard";
 
 const drawerWidth = 240;
 
@@ -146,14 +150,19 @@ export default function MiniDrawer({ appName, children }) {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {["Dashboard", "My Account", "Transactions", "Cards"].map(
+            (text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index === 0 && <DashboardIcon />}
+                  {index === 1 && <AccountBalanceWalletIcon />}
+                  {index === 2 && <ListAltIcon />}
+                  {index === 3 && <CreditCardIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
         <Divider />
         <List>

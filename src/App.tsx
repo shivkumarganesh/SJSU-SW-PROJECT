@@ -2,6 +2,10 @@ import React from "react";
 import "./styles.css";
 import MiniDrawer from "./components/side-menu/side-menu";
 import UserSearch from "./pages/user-search/user-search";
+import Login from "./pages/login/login";
+import Profile from "./pages/profile/profile";
+import Transactions from "./pages/transactions/transactions";
+
 import { makeStyles } from "@material-ui/core";
 import { Switch, Route } from "react-router-dom";
 
@@ -29,6 +33,18 @@ export default function App() {
       <MiniDrawer appName="Musketeer's Bank">
         <main className={classes.content}>
           <Switch>
+            <Route path="/login">
+              <div className={classes.toolbar} />
+              <Login />
+            </Route>
+            <Route path="/profile">
+              <div className={classes.toolbar} />
+              <Profile />
+            </Route>
+            <Route path="/transactions">
+              <div className={classes.toolbar} />
+              <Transactions />
+            </Route>
             <Route path="/search">
               <div className={classes.toolbar} />
               <UserSearch />
