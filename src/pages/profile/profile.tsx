@@ -1,6 +1,5 @@
 import React from "react";
-import ListView from "../../components/list-view/list-view";
 
 export default function Profile() {
-  return <ListView />;
+  return <h1>PROFILE</h1>;
 }

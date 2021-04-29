@@ -21,6 +21,8 @@ import AccountBalanceWalletIcon from "@material-ui/icons/AccountBalanceWallet";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
+import FaceIcon from "@material-ui/icons/Face";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -150,14 +152,35 @@ export default function MiniDrawer({ appName, children }) {
         </div>
         <Divider />
         <List>
-          {["Dashboard", "My Account", "Transactions", "Cards"].map(
+          {["Dashboard", "My Account", "Profile", "Transactions", "Cards"].map(
             (text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {index === 0 && <DashboardIcon />}
-                  {index === 1 && <AccountBalanceWalletIcon />}
-                  {index === 2 && <ListAltIcon />}
-                  {index === 3 && <CreditCardIcon />}
+                  {index === 0 && (
+                    <Link to="/dashboard">
+                      <DashboardIcon />
+                    </Link>
+                  )}
+                  {index === 1 && (
+                    <Link to="/accounts">
+                      <AccountBalanceWalletIcon />
+                    </Link>
+                  )}
+                  {index === 2 && (
+                    <Link to="/profile">
+                      <FaceIcon />
+                    </Link>
+                  )}
+                  {index === 3 && (
+                    <Link to="/transactions">
+                      <ListAltIcon />
+                    </Link>
+                  )}
+                  {index === 4 && (
+                    <Link to="/cards">
+                      <CreditCardIcon />
+                    </Link>
+                  )}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>

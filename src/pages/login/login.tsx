@@ -1,6 +1,5 @@
 import React from "react";
-import ListView from "../../components/list-view/list-view";
 
 export default function Login() {
-  return <ListView />;
+  return <h1>LOGIN</h1>;
 }

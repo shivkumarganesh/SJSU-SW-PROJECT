@@ -26,24 +26,6 @@ const StyledTableRow = withStyles((theme) => ({
   }
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("John Doe", 1599868, "Santa Clara, CA", "GREEN", "84.0 USD"),
-  createData("Craiz Zarr", 7675237, "Cupertino, CA", "GREEN", "4.3 USD"),
-  createData("Potter Ji", 2876562, "East Ridge, OK", "GREEN", "665.0 USD"),
-  createData("Creg Dan", 3075655, "Santa Clara, CA", "GREEN", "487.3 USD"),
-  createData(
-    "Android Gingerbread",
-    7576356,
-    "Santa Clara, CA",
-    "GREEN",
-    "300.9 USD"
-  )
-];
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700
@@ -73,17 +55,21 @@ export default function ListView(props: ListViewI) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {props.data.map(
+            (row: any, index: string | number | null | undefined) => (
+              <StyledTableRow key={index}>
+                {Object.keys(row).map((item, i) => {
+                  return i === 0 ? (
+                    <StyledTableCell component="th" scope="row">
+                      {row[item]}
+                    </StyledTableCell>
+                  ) : (
+                    <StyledTableCell align="right">{row[item]}</StyledTableCell>
+                  );
+                })}
+              </StyledTableRow>
+            )
+          )}
         </TableBody>
       </Table>
     </TableContainer>
