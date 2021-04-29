@@ -5,6 +5,8 @@
     "compilerOptions": {
         "strict": true,
         "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "target": "ES5",
         "lib": [
             "dom",
             "es2015"
