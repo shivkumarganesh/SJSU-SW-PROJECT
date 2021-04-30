@@ -19,6 +19,7 @@ export class UserStore {
 
   @action.bound
   setUserAuth(userAuth: boolean) {
+    console.log("LOLLLL");
     this.isAuthenticated = userAuth;
   }
 

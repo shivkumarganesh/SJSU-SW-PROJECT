@@ -1,16 +1,22 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import { UserStore } from "../../stores/user-store";
+import { observer } from "mobx-react-lite";
 
-export default function Login() {
+const Login = observer(() => {
   const userStore = new UserStore();
   return (
-    <Button
-      onClick={() => {
-        userStore.setUserAuth(true);
-      }}
-    >
-      Login
-    </Button>
+    <>
+      {JSON.stringify(userStore.isUserAuthenticated)}
+      <Button
+        onClick={() => {
+          userStore.setUserAuth(true);
+        }}
+      >
+        Login
+      </Button>
+    </>
   );
-}
+});
+
+export default Login;

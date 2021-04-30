@@ -14,6 +14,7 @@ import Signup from "./pages/signup/signup";
 import { makeStyles } from "@material-ui/core";
 import { Route } from "react-router-dom";
 import { UserStore } from "./stores/user-store";
+import { observer } from "mobx-react-lite";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function App() {
+const App = observer(() => {
   const classes = useStyles();
   const userStore = new UserStore();
 
@@ -40,8 +41,7 @@ export default function App() {
       <MiniDrawer appName="Musketeer's Bank">
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Route path="/" component={Login} />
-          <Route path="/login" component={Login} />
+          <Route path="/" component={Login} exact />
           <Route path="/signup" component={Signup} />
           <PrivateRoute
             path="/dashboard"
@@ -83,4 +83,6 @@ export default function App() {
       </MiniDrawer>
     </div>
   );
-}
+});
+
+export default App;
