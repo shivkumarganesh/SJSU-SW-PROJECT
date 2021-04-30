@@ -1,4 +1,4 @@
-import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import React from "react";
 import ListView from "../../components/list-view/list-view";
 import { TransactionStore } from "../../stores/transaction-store";
